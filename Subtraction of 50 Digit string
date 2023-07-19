@@ -1,0 +1,52 @@
+#include<stdio.h>
+void subtraction(int*,int*,int*);
+//register int i;
+int main()
+{
+int array1[3]={1,1,2};
+int array2[3]={1,2,3};
+int answer_array[4];
+
+/*for(int i=0;i<3;i++)
+{
+printf("Give me the number1:\n");
+scanf("%d",&array1[i]);
+}
+for(int j=0;j<3;j++)
+{
+printf("Give me the number2:\n");
+scanf("%d",&array2[j]);
+}*/
+subtraction(&array1[2],&array2[2],&answer_array[3]);
+for(int k=0;k<4;k++)
+{
+printf("%d",answer_array[k]);
+}
+}
+
+
+void subtraction(int*pointer1,int*pointer2,int*answer_pointer)
+{
+int*temp_pointer;
+for(int i=0;i<3;i++)
+{
+line10:*answer_pointer=*pointer1-*pointer2;
+if(*answer_pointer<0)
+{
+*pointer1=*pointer1+10;
+temp_pointer=pointer1;
+temp_pointer--;
+while(*temp_pointer==0)
+{
+*temp_pointer=9;
+*temp_pointer--;
+}
+*temp_pointer=*temp_pointer-1;
+goto line10;
+}
+pointer1--;
+pointer2--;
+answer_pointer--;
+}
+*answer_pointer=0;
+}
