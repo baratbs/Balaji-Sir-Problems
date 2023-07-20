@@ -1,0 +1,69 @@
+#include<stdio.h>
+int main()
+{
+int arrray1[3]={2,2,2},array2[3]={2,2,2},answer_array[3};
+function_divide(&array1[0],&array2[0],&answer_array[3]);
+for(int i=0;i<3;i++)
+{
+printf("The result is:%d",answer_array[i]);
+}
+
+}
+
+void function_divide(int* pointer1,int* pointer2, int*answer_pointer)
+{
+for(int i=0;i<3,i++)
+{
+int number1=0;
+number1=*pointer+(number1*10);
+pointer1++;
+}
+for(int i=0;i<3;i++)
+{
+int number2=0;
+number2=*pointer+(number2*10);
+pointer2++;
+}
+int answer_quotient=number1/number2;
+int answer_remainder=number1%number2;
+
+
+/*to_find_length=number1;
+int lenght1=0,length2=0;
+while(to_find_length>10)
+{
+to_find_length=number1%10;
+lenght1++;
+to_find_length=to_find_length/10;
+}
+//length1=length/10;
+to_find_length2=number2;
+while(to_find_length2>10)
+{
+to_find_length2=number2%10;
+length2++;
+to_find_length2=to_find_length2/10;
+}*/
+
+length1=0;
+lenth_quotient=answer_quotient;
+while(answer_quotient>10)
+{
+lenth_quotient=lenth_quotient/10;
+length++;
+}
+
+length2=0;
+length_remainder=answer_remainder;
+while(length_remainder>10)
+{
+length_remainder=length_remainder/10;
+length2++;
+}
+loop_value=length1;
+for(int i=0;i<=loop_value;loop_value++)
+{
+*answer_pointer=answer_quotient%10;
+answer_quotient=answer_quotient/10;
+}
+}
