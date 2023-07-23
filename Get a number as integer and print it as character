@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+int givennumber,length_of_number=0,d_givennumber,d_length_of_number;
+int array1[5];
+printf("Give me a number:\n");
+scanf("%d",&givennumber);
+d_givennumber=givennumber;
+while(d_givennumber>10)
+{
+length_of_number++;
+d_givennumber=d_givennumber/10;
+}
+d_length_of_number=length_of_number;
+while(length_of_number>=0)
+{
+array1[length_of_number]=givennumber%10;
+length_of_number--;
+givennumber=givennumber/10;
+}
+int i=0;
+while(d_length_of_number>=0)
+{
+printf("%c\n",array1[i]+48);
+i++;
+d_length_of_number--;
+}
+}
+
+
+/*Answer
+Give me a number:
+1234
+1
+2
+3
+4
+*/
