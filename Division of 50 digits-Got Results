@@ -1,0 +1,84 @@
+#include<stdio.h>
+char division(int*,int*,int*);
+int array1[3]={1,2,3},array2[3]={1,0,0},answer_array[3];
+char size_answer_array=0,size_array2;
+void main(void)
+{
+char return_value;
+return_value=division(&array1[3],&array2[3],&answer_array[3]);
+printf("\nDiviser=%d",return_value);
+for(int i=0;i<3;i++)
+{
+printf("-Remainder=%d",answer_array[i]);
+}
+}
+
+char division(int*pointer1,int*pointer2,int*answer_pointer)
+{
+char p_pos=0,diviser=0;
+for(int i=0;i<2;i++)
+{
+line10:*answer_pointer=*pointer1-*pointer2;
+	if(*answer_pointer<0)
+	{
+	 *pointer1=*pointer1+10;       //Borrow happens here //If Lowest number - Hignest number (we get negative)
+	 pointer1--;
+	 p_pos++;
+	 
+		while(*pointer1==0)
+		{
+		*pointer1=9;
+		pointer1--;
+		p_pos++;
+		}
+	  *pointer1=*pointer1-1;      //Brrow //we Borrow from Pevious value so that is '-' 1
+	  
+	  //Here Pointer should go to it's Position It was in Before Entering into this IF statement.
+	  
+	  *(pointer1-p_pos);
+	  
+	  p_pos=0;
+	  
+	  //It will make the pointer points to the same Initial Location.
+	  
+	  goto line10;
+	 }
+	 
+	 //else // If *answer_pointer//Greater than 0
+	 
+	 *pointer1--;
+	 *pointer2--;
+	 *answer_pointer--;
+	 p_pos--;
+}
+
+		
+		size_answer_array=sizeof(answer_array)/sizeof(answer_array[0]);
+		size_array2=sizeof(array2)/sizeof(array2[0]);
+		
+		//To find if the answer_array is Greater than array2.
+		
+		
+						if(size_answer_array>size_array2)
+						{
+						diviser++;
+							 strcpy(array1,answer_array);  // copy answer_array Values to array1.
+							 
+							 //Now the Pointer Should POint the initial Locaion.
+							 
+							 
+						*(pointer1-p_pos);
+						*(pointer2-p_pos);
+						*(answer_pointer-p_pos);
+						
+						// These statements Let the POinter Point to the Initial position. i.e The Position passed by the main().
+						
+						goto line10;
+						}
+						
+						else
+						{
+						return(diviser);     //Returning the Remainder.
+						}
+		}
+						
