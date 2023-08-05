@@ -1,0 +1,48 @@
+#include<stdio.h>
+void adjust_the_carry(int * pointer1);
+int main()
+{
+int array1[5];	
+printf("Give me the number:");
+	for(int i=0;i<5;i++)
+	{
+		scanf("%d",&array1[i]);
+	}
+adjust_the_carry(&array1[4]);
+	for(int i=0;i<5;i++)
+	{
+		printf("%d",array1[i]);
+	}
+}
+
+void adjust_the_carry(int * pointer1)
+{
+int result_remainder,result_quotient;
+	for(int i=0;i<5;i++)
+	{
+		result_remainder=*pointer1%10;
+		result_quotient=*pointer1/10;
+		//printf("%d",*pointer1);
+			
+			if(result_quotient>0)
+			{
+				*pointer1=result_remainder;
+				pointer1--;
+				*pointer1=*pointer1+result_quotient;
+				 pointer1++;
+			}
+			else
+			pointer1--;
+	}
+}
+
+
+-------------------------------------------
+/*
+Give me the number:1
+2
+3
+4
+55
+12395
+*/
